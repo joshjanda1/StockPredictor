@@ -1,0 +1,182 @@
+{% load static %}
+
+<html>
+  <head>
+    
+      <meta charset="utf-8">
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
+		<link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.css" rel="stylesheet" type="text/css" />
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+		<script type="text/javasript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+
+  </head>
+
+<style>
+* {box-sizing: border-box;}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.topnav {
+	overflow: hidden;
+	background-color: #6B6B6B;
+}
+
+.topnav a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-fize: 17px;
+}
+
+.topnav a:hover {
+	background-color: #45B8DB;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #6B6B6B;
+	color: white;
+	margin-top: 0px;
+	margin-right: 17px;
+}
+
+.topnav .search-container {
+	float: right;
+}
+.topnav input[type=text] {
+	padding: 6px;
+	margin-top: 8px;
+	font-size: 17px;
+	border: none;
+}
+
+.topnav .search-container button {
+	float: center-right;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+	background: #ccc;
+}
+
+.sidegraph {
+	float: left;
+	margin: 0 auto;
+	margin-top: 15px;
+	text-align: left;
+	top: 50%;
+	width: 50%;
+	padding: 10px;
+	font-size = 20px;
+}
+
+.content {
+    float: center;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    font-size = 20px;
+}
+
+.footer{
+    position: absolute;
+    float: center;
+    background-color: #6B6B6B;
+    text-align: center;
+    font-size = 10px;
+    bottom: 0px;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+}
+
+.center {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 200px;
+	top: 50%;
+	width: 50%;
+	border: 6px solid blue;
+	padding: 10px;
+	font-size = 20px;
+}
+
+#submit {
+ background-color: #6B6B6B;
+ padding: .5em;
+ -moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ border-radius: 6px;
+ color: #fff;
+ font-family: 'Oswald';
+ font-size: 20px;
+ text-decoration: none;
+ border: none;
+}
+
+#submit:hover {
+ border: none;
+ background: blue;
+ box-shadow: 0px 0px 1px #777;
+}
+
+
+</style>
+</head>
+<body>
+<div class="topnav">
+	<a class="active" href="/home">Home</a>
+	<a href="/about">About</a>
+	<div class="search-container">
+		<form class="search" action="{% url 'detail_view' %}" method="get">
+			<input type="search" placeholder="Enter a stock symbol..." name="usr_search"
+				value = '{{ query }}' required>
+			<button type="submit">Search</button>
+		</form>
+	</div>
+</div>
+<div class="content">
+	<h1>Retrieve Stock Information</h1>
+	<h2>Last Updated 11/10/2017</h2>
+</div>
+<div class="center">
+    <p>Using Django, as well as Keras, I have created a website that allows users to search stock tickets and receive information / attributes on the stocks</p>
+    <p>Along with attributes and a graph of closing, opening, high, low, and volume data, you also receive predicted data based on an Artificial Neural Network.</p>
+    <p>This Neural Network is generic, trained off of SPY (S&P 500 Data) in order to capture trends in numerous amounts of big companies.</p>
+    <p>Use the search bar in the top right in order to start receiving stock data! Data can be found in the link below.</p>
+    <p>Alternatively, click the button below to be taken to a random stock page!</p>
+    <form action="{% url 'random_view' %}" method = "get">
+        <button id="submit" type="submit">Random Stock</button>
+    </form>
+</div>
+<div class="footer">
+    <h4>Created By Josh Janda - Data Provide By <a href = "https://www.kaggle.com/borismarjanovic/price-volume-data-for-all-us-stocks-etfs">Kaggle</a></h4>
+    <a href="https://github.com/joshjanda1"><img src="{% static 'images/github.png' %}" title="Created by Josh Janda" /></a>
+    <a href="https://www.linkedin.com/in/joshua-janda-6889ab173/"><img src="{% static 'images/linkedin-24.png' %}" title="Created by Josh Janda" /></a>
+</div>
+</body>
+</html>
+
+			
