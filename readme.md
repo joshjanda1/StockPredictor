@@ -12,6 +12,18 @@ Steps for setting up:
 3. In settings.py file, change **FILE_DIR** variable to location of stock data.
 4. Run Django App.
 
+Required Packages:
+
+- Django
+- Numpy
+- Pandas
+- Tensorflow
+- Keras
+- SciKit-Learn
+- Bokeh
+- Random
+- OS
+
 Images of website (will be updated later on for better looking pages):
 
 ![](images/home_screen.png)
